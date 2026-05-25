@@ -20,33 +20,41 @@ export default function ForgotPasswordPage() {
 
   if (sent) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-        <div className="bg-slate-800/50 p-8 rounded-2xl text-center text-white">
-          <p>Reset link sent to {email}</p>
-          <Link href="/auth/login" className="text-teal-400 mt-4 inline-block">Back to login</Link>
+      <div className="min-h-screen flex items-center justify-center px-4 bg-black">
+        <div className="bg-black/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-8 text-center text-white transition-all duration-300 hover:border-yellow-400">
+          <p className="text-gray-200">Reset link sent to <span className="text-yellow-400">{email}</span></p>
+          <Link href="/auth/login" className="text-yellow-400 hover:text-yellow-300 mt-4 inline-block transition">
+            Back to login
+          </Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
-      <form onSubmit={handleSubmit} className="bg-slate-800/50 backdrop-blur p-8 rounded-2xl w-full max-w-md space-y-4">
-        <h2 className="text-2xl font-bold text-white text-center">Reset password</h2>
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+    <div className="min-h-screen flex items-center justify-center px-4 bg-black">
+      <form onSubmit={handleSubmit} className="bg-black/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-8 w-full max-w-md space-y-4 transition-all duration-300 hover:border-yellow-400 hover:shadow-[0_0_15px_rgba(234,179,8,0.2)]">
+        <h2 className="text-2xl font-bold text-center">
+          <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
+            Reset password
+          </span>
+        </h2>
+        {error && <p className="text-red-400 text-sm text-center">{error}</p>}
         <input
           type="email"
           placeholder="Your email"
-          className="w-full p-3 rounded-lg bg-slate-900 text-white"
+          className="w-full p-3 rounded-lg bg-black/60 border border-yellow-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="w-full bg-teal-500 py-2 rounded-lg font-semibold text-white">
+        <button type="submit" className="btn-inferno w-full">
           Send reset link
         </button>
         <div className="text-center text-sm text-gray-400">
-          <Link href="/auth/login">Back to login</Link>
+          <Link href="/auth/login" className="hover:text-yellow-400 transition">
+            Back to login
+          </Link>
         </div>
       </form>
     </div>

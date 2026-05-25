@@ -2,61 +2,114 @@
 
 @layer base {
   body {
-    background: radial-gradient(circle at 10% 20%, #0A0C10, #030507);
-    color: #E5E7EB;
-    font-feature-settings: "ss02", "cv02";
+    background: #0a0b0e;
+  
+    background-image: repeating-linear-gradient(0deg, rgba(234, 179, 8, 0.02) 0px, rgba(234, 179, 8, 0.02) 1px, transparent 1px, transparent 2px);
+    color: #e2e8f0;
   }
 
-  /* Custom scrollbar – neon */
+
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #1A1C23;
+    background: #1a1c23;
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #FF007F;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #00E5FF;
+    background: #f59e0b;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #f59e0b;
   }
 }
 
-@layer components {
-  /* Glowing card effect */
-  .card-glow {
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .card-glow:hover {
-    border-color: rgba(255, 0, 127, 0.4);
-    box-shadow: 0 0 12px rgba(255, 0, 127, 0.2);
-  }
 
-  /* Gradient button */
-  .btn-primary {
-    background: linear-gradient(135deg, #FF007F, #00E5FF);
-    color: white;
-    font-weight: 600;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s;
-    box-shadow: 0 2px 8px rgba(255, 0, 127, 0.3);
-  }
-  .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(0, 229, 255, 0.4);
-  }
+.neon-yellow {
+  color: #f59e0b;
+  text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+}
+.neon-red {
+  color: #dc2626;
+  text-shadow: 0 0 5px rgba(220, 38, 38, 0.5);
+}
 
-  /* Neon text */
-  .neon-text {
-    background: linear-gradient(135deg, #FF007F, #00E5FF);
-    background-clip: text;
-    color: transparent;
-    font-weight: bold;
+
+.glass-panel {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+
+@keyframes pulse-glow {
+  0%, 100% {
+    border-color: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.2);
   }
+  50% {
+    border-color: rgba(220, 38, 38, 0.5);
+    box-shadow: 0 0 16px rgba(220, 38, 38, 0.3);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+.btn-neon {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  background: linear-gradient(135deg, #0f111a, #0a0b0e);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  color: #f59e0b;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.btn-neon:hover {
+  background: #0f111a;
+  border-color: #dc2626;
+  color: #dc2626;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+  transform: translateY(-1px);
+}
+
+
+.card-neon {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+.card-neon:hover {
+  border-color: rgba(245, 158, 11, 0.8);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+}
+
+
+.btn-inferno {
+  background: linear-gradient(135deg, #f59e0b, #dc2626);
+  color: black;
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
+.btn-inferno:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.5);
+  filter: brightness(1.05);
+}
+
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
 }

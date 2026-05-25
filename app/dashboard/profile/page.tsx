@@ -16,25 +16,29 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="max-w-2xl text-white">
-      <h1 className="text-2xl font-bold">Profile settings</h1>
-      {message && <p className="text-green-400 mt-2">{message}</p>}
+    <div className="max-w-2xl">
+      <h1 className="text-2xl font-bold">
+        <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
+          Profile settings
+        </span>
+      </h1>
+      {message && <p className="text-yellow-400 mt-2">{message}</p>}
       <form onSubmit={handleSave} className="mt-6 space-y-4">
         <input
           type="text"
           value={name}
           onChange={e => setName(e.target.value)}
-          className="w-full p-3 bg-slate-800 rounded-lg text-white"
+          className="w-full p-3 bg-black/60 border border-yellow-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
           placeholder="Full name"
         />
         <input
           type="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="w-full p-3 bg-slate-800 rounded-lg text-white"
+          className="w-full p-3 bg-black/60 border border-yellow-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
           placeholder="Email"
         />
-        <button type="submit" className="bg-teal-500 px-6 py-2 rounded-lg">
+        <button type="submit" className="btn-inferno">
           Save changes
         </button>
       </form>

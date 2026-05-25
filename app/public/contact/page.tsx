@@ -11,22 +11,70 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen py-20 px-4 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
+    <div className="min-h-screen py-20 px-4 bg-black">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-white mb-4">Get in touch</h1>
+        <h1 className="text-4xl font-bold text-center mb-4">
+          <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
+            Get in touch
+          </span>
+        </h1>
         <p className="text-center text-gray-300 mb-12">We’ll reply within 24 hours.</p>
         <div className="grid md:grid-cols-2 gap-10">
-          <form onSubmit={handleSubmit} className="bg-slate-800/40 backdrop-blur rounded-2xl p-6 space-y-4">
-            {sent && <p className="text-green-400">Message sent! (demo)</p>}
-            <input type="text" placeholder="Your name" required className="w-full p-3 bg-slate-900 rounded-lg border border-teal-500/30 text-white" />
-            <input type="email" placeholder="Email" required className="w-full p-3 bg-slate-900 rounded-lg text-white" />
-            <textarea rows={5} placeholder="Message" required className="w-full p-3 bg-slate-900 rounded-lg text-white"></textarea>
-            <button type="submit" className="bg-teal-500 px-6 py-2 rounded-lg text-white">Send</button>
+          {/* Contact Form */}
+          <form 
+            onSubmit={handleSubmit} 
+            className="bg-black/50 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-6 space-y-4 transition-all duration-300 hover:border-yellow-400 hover:shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+          >
+            {sent && <p className="text-yellow-400 text-center">Message sent! (demo)</p>}
+            <input 
+              type="text" 
+              placeholder="Your name" 
+              required 
+              className="w-full p-3 bg-black/60 rounded-lg border border-yellow-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
+            />
+            <input 
+              type="email" 
+              placeholder="Email" 
+              required 
+              className="w-full p-3 bg-black/60 rounded-lg border border-yellow-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
+            />
+            <textarea 
+              rows={5} 
+              placeholder="Message" 
+              required 
+              className="w-full p-3 bg-black/60 rounded-lg border border-yellow-500/30 text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition"
+            ></textarea>
+            <button 
+              type="submit" 
+              className="btn-inferno w-full"
+            >
+              Send message
+            </button>
           </form>
-          <div className="space-y-4 text-gray-300">
-            <div className="flex gap-3"><FiMail className="text-teal-400" /> support@mailnest.com</div>
-            <div className="flex gap-3"><FiPhone className="text-teal-400" /> +1 (555) 123-4567</div>
-            <div className="flex gap-3"><FiMapPin className="text-teal-400" /> 123 Innovation Drive, SF</div>
+
+          {/* Contact Info */}
+          <div className="space-y-6 text-gray-300">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-black/30 border border-yellow-500/20">
+              <FiMail className="text-yellow-400 text-2xl" />
+              <div>
+                <p className="text-sm text-gray-500">Email</p>
+                <p className="text-white">support@mailnest.com</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-black/30 border border-yellow-500/20">
+              <FiPhone className="text-yellow-400 text-2xl" />
+              <div>
+                <p className="text-sm text-gray-500">Phone</p>
+                <p className="text-white">+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-black/30 border border-yellow-500/20">
+              <FiMapPin className="text-yellow-400 text-2xl" />
+              <div>
+                <p className="text-sm text-gray-500">Office</p>
+                <p className="text-white">123 Innovation Drive, SF</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

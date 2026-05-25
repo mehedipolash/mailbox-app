@@ -34,39 +34,39 @@ export default function MailPage() {
     if (selected?.id === id) setSelected(prev => prev ? { ...prev, starred: !prev.starred } : null);
   };
 
-  if (loading) return <div className="text-white p-6">Loading messages...</div>;
+  if (loading) return <div className="flex justify-center items-center h-full text-yellow-400">Loading secure messages...</div>;
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-120px)] text-white">
-      {/* Email list */}
-      <div className="w-full md:w-96 bg-black/30 rounded-xl overflow-y-auto p-2 space-y-2">
+    <div className="flex flex-col md:flex-row gap-6 h-full">
+    
+      <div className="w-full md:w-96 space-y-3 overflow-y-auto pr-2">
         {emails.map(email => (
           <div
             key={email.id}
             onClick={() => handleSelect(email)}
-            className={`p-3 rounded-lg cursor-pointer transition ${
+            className={`bg-black/50 backdrop-blur-sm border rounded-xl p-4 cursor-pointer transition-all duration-200 ${
               selected?.id === email.id
-                ? 'bg-teal-500/20 border-l-4 border-teal-400'
-                : 'hover:bg-slate-700/50'
+                ? 'border-yellow-400 shadow-lg shadow-yellow-500/20'
+                : 'border-yellow-500/30 hover:border-yellow-400 hover:shadow-[0_0_10px_rgba(234,179,8,0.2)]'
             }`}
           >
-            <div className="flex justify-between">
-              <span className="font-semibold">{email.from.name}</span>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-white">{email.from.name}</span>
               <button onClick={e => toggleStar(email.id, e)}>
                 <FiStar className={email.starred ? 'fill-yellow-400 text-yellow-400' : 'text-gray-500'} />
               </button>
             </div>
-            <div className="text-sm font-medium">{email.subject}</div>
-            <div className="text-xs text-gray-400 truncate">{email.preview}</div>
-            <div className="text-xs text-gray-500 mt-1">
+            <div className="text-sm font-mono text-gray-300 mt-1">{email.subject}</div>
+            <div className="text-xs text-gray-400 truncate mt-1">{email.preview}</div>
+            <div className="text-xs text-yellow-500/70 mt-2">
               {formatDistanceToNow(new Date(email.date), { addSuffix: true })}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Email preview */}
-      <div className="flex-1 bg-slate-800/40 rounded-xl overflow-y-auto">
+      
+      <div className="flex-1 bg-black/30 backdrop-blur-sm border border-yellow-500/30 rounded-xl overflow-y-auto">
         <MailPreview email={selected} />
       </div>
     </div>
