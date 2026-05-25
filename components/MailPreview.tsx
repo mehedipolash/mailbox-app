@@ -1,10 +1,6 @@
 import { Email } from '@/data/mockData';
 
-interface MailPreviewProps {
-  email: Email | null;
-}
-
-export default function MailPreview({ email }: MailPreviewProps) {
+export default function MailPreview({ email }: { email: Email | null }) {
   if (!email) {
     return (
       <div className="flex items-center justify-center h-full text-gray-400">

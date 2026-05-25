@@ -21,29 +21,29 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-teal-500/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A0C10]/80 backdrop-blur-lg border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
+          <Link href="/" className="text-2xl font-bold neon-text">
             MailNest
           </Link>
           <div className="hidden md:flex items-center gap-6">
             {links.map(link => (
-              <Link key={link.href} href={link.href} className="text-gray-300 hover:text-teal-400 transition">
+              <Link key={link.href} href={link.href} className="text-gray-300 hover:text-[#00E5FF] transition">
                 {link.label}
               </Link>
             ))}
             {user ? (
               <>
-                <Link href="/dashboard/mail" className="text-gray-300 hover:text-teal-400">Dashboard</Link>
-                <button onClick={logout} className="bg-teal-500/20 text-teal-300 px-4 py-2 rounded-lg">
+                <Link href="/dashboard/mail" className="text-gray-300 hover:text-[#00E5FF] transition">Dashboard</Link>
+                <button onClick={logout} className="bg-white/10 text-white px-4 py-2 rounded-lg hover:bg-white/20">
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link href="/auth/login" className="text-gray-300 hover:text-teal-400">Login</Link>
-                <Link href="/auth/signup" className="bg-teal-500 text-white px-4 py-2 rounded-lg">
+                <Link href="/auth/login" className="text-gray-300 hover:text-[#00E5FF] transition">Login</Link>
+                <Link href="/auth/signup" className="btn-primary">
                   Sign up
                 </Link>
               </>
@@ -54,7 +54,7 @@ export default function Navbar() {
           </button>
         </div>
         {mobileOpen && (
-          <div className="md:hidden py-4 space-y-3 border-t border-teal-500/30">
+          <div className="md:hidden py-4 space-y-3 border-t border-white/10">
             {links.map(link => (
               <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block text-gray-300">
                 {link.label}
@@ -70,7 +70,7 @@ export default function Navbar() {
             ) : (
               <>
                 <Link href="/auth/login" className="block text-gray-300">Login</Link>
-                <Link href="/auth/signup" className="block text-teal-400">Sign up</Link>
+                <Link href="/auth/signup" className="block btn-primary text-center">Sign up</Link>
               </>
             )}
           </div>

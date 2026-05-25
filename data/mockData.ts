@@ -31,9 +31,9 @@ export interface PricingPlan {
 export const mockUsers: User[] = [
   {
     id: 'u1',
-    name: 'Lena Chen',
-    email: 'lena@example.com',
-    avatar: 'LC',
+    name: 'Mehedi Hasan',
+    email: 'mehedi@gmail.com',
+    avatar: 'MH',
     plan: 'pro',
     planExpiry: '2025-06-01T00:00:00Z',
   },
@@ -44,8 +44,8 @@ export const mockEmails: Email[] = [
     id: 'e1',
     from: { name: 'Victor Rojas', email: 'victor@designstudio.com' },
     subject: 'New branding assets ready',
-    preview: 'Hey Lena, here are the final logo variations...',
-    content: '<p>Hi Lena,</p><p>Attached you’ll find the SVG and PNG versions of the new logo. Let me know your thoughts!</p><p>Best,<br>Victor</p>',
+    preview: 'Hey Mehedi, here are the final logo variations...',
+    content: '<p>Hi Mehedi,</p><p>Attached you’ll find the SVG and PNG versions of the new logo. Let me know your thoughts!</p><p>Best,<br>Victor</p>',
     date: '2025-05-24T09:15:00Z',
     read: false,
     starred: true,

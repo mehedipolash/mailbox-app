@@ -39,7 +39,7 @@ export default function MailPage() {
   return (
     <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-120px)] text-white">
       {/* Email list */}
-      <div className="w-full md:w-96 bg-slate-800/40 rounded-xl overflow-y-auto p-2 space-y-2">
+      <div className="w-full md:w-96 bg-black/30 rounded-xl overflow-y-auto p-2 space-y-2">
         {emails.map(email => (
           <div
             key={email.id}
